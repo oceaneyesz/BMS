@@ -1,0 +1,19 @@
+
+B 哲学、宗教
+D 政治、法律
+E 军事经济
+G 文教科体
+H 语言、文字、文学
+J 艺术
+K 历史地理天文
+O 数理科学和化学
+Q 生物科学
+R 医药、卫生
+S 农业工业技术
+
+图书编码：B（图书类别）+123（图书代码）+312（图书加入图书馆的日期）
+A123801
+B122801
+O234802  数学分析
+
+INSERT INTO BMS_books_index(book_code_index,book_name,book_author,book_status) VALUES ('B122801','纯粹理性批判','伊曼努尔·康德','1');

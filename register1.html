@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+  <html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <!-- <link href="register.css" rel="stylesheet"> -->
+　　
+  </head>
+  <body>
+      <form  name="myform" id="myform" method="POST" action="register1.php" onsubmit="check()">
+        <h1 class="bold">注册账户</h1>
+        <dl>
+          <dt>你的Email：</dt>
+          <dd><input id="email" type="text" class="inputs" onblur="checkEmail()" name="user_email" placeholder="邮箱"/></dd>
+          <span id="email1"></span>
+        </dl>
+        <dl>
+          <dt>你的用户名：</dt>
+          <dd><input id="username" type="text" class="inputs" onblur="checkUsername()" name="user_name" placeholder="用户名"/></dd>
+          <span id="username1"></span>
+        </dl>
+        <dl>
+            <dt>你的密码：</dt>
+            <dd><input id="password" type="password" class="password" onblur="checkPassword()" name="user_password" placeholder="密码"/></dd>
+            <span id="password1"></span>
+        </dl>
+        <dl>
+            <dt>再次确认密码：</dt>
+            <dd><input id="repassword" type="password" class="repassword" onblur="checkRepassword()" name="user_repassword" placeholder="确认密码"/></dd>
+            <span id="repassword1"></span>
+        </dl>
+        <dl>
+            <dt>管理员验证密码：</dt>
+            <dd>
+              <input id="admin_password" type="password" class="password" 
+                  	onblur="checkAdpassword()" name="admin_password"  placeholder="管理员密码（用户不填）"/>
+            </dd>
+            <span id="admin_password1"></span>
+        </dl>
+        <button class="register" type="submit" name="action" value="register">注册账户</button>
+      </form>
+  <script>
+    console.log("asf")
+ function checkUsername(){
+  console.log("asdsad")
+   var name=document.getElementById("username").value.trim();/*去除字符串两端的空白字符*/
+   var name1=/^[^@#]{3,16}$/;
+     if(!name1.test(name)){      
+         document.getElementById("username1").innerHTML=
+          "用户名为3~16个字符，且不能包含”@”和”#”字符?";
+     }
+     else{
+         document.getElementById("username1").innerHTML="";
+         return true;
+     }
+    }
+
+function checkPassword(){
+  var password=document.getElementById("password").value;
+  var password1=/^[0-9A-Za-z]\w{7,16}$/;
+  if(!password1.test(password)){
+    document.getElementById("password1").innerHTML="密码长度必须在8个字符到16个字符之间";    
+  }
+  else{
+      document.getElementById("password1").innerHTML="";
+      return true;
+  }
+
+}
+
+function checkRepassword(){
+  var repassword=document.getElementById("repassword").value;
+  var password=document.getElementById("password").value;
+  if(repassword!=password){
+      document.getElementById("repassword1").innerHTML="两次输入的密码不一致";      
+  }
+  else{
+      document.getElementById("repassword1").innerHTML="";
+      return true;
+  }
+}
+
+function checkEmail(){
+  var email=document.getElementById("email").value.trim();
+  var checkemail=/^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+  if(!checkemail.test(email)){
+    document.getElementById("email1").innerHTML="输入的邮箱格式不正确";
+    
+  }
+  else{
+    document.getElementById("email1").innerHTML="";
+      return true;
+  }
+}
+
+function checkAdpassword(){
+  var adpassword=document.getElementById("admin_password").value;
+  if((adpassword!="999999")&&(adpassword!="")){
+    document.getElementById("admin_password1").innerHTML="管理员验证密码不正确";
+  }
+  else{
+    document.getElementById("admin_password1").innerHTML="";
+  }
+}
+
+
+          var judge=0, type=0;
+          judge=<?php echo $judge; ?>;
+          type=<?php echo $user_type;?>;          
+          if (judge == 1) {
+              alert("恭喜，注册成功！");
+              if(type == 1){alert("您为管理员身份");}
+              judge=0;
+              
+              window.location.href="index.php?id=<?php echo $info["id"];?>"; 
+          }
+          if((judge==2)){
+              alert("该用户名已经被注册");
+              judge=0;
+          }
+          if((judge==3)){
+              alert("抱歉，注册失败");
+              judge=0;
+          }
+        </script>
+  </body>
+</html>

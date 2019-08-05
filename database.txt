@@ -1,0 +1,77 @@
+CREATE TABLE BMS_users(
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `user_name` TEXT BINARY,
+    `user_password` TEXT BINARY,
+    `user_email` TEXT BINARY,
+    `user_type` INT,
+    `user_reg_time` DATETIME,
+   `user_lent` INT£©
+	ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+CREATE TABLE BMS_books(
+
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+
+    `book_code` TEXT,
+
+    `book_status` INT,
+
+    `lent_time` DATETIME,
+
+    `user_id` INT
+ENGINE = InnoDB DEFAULT CHARSET = utf8;
+
+CREATE TABLE BMS_books_history(
+
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+
+    `book_code` TEXT,
+
+    `lent_time` DATETIME,
+
+    `apply_return_time` DATETIME,
+
+    `return_time` DATETIME,
+
+    `user_id` INT,
+
+CREATE TABLE BMS_books_user_history(
+
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+
+    `book_name` TEXT,
+
+    `book_code` TEXT,
+
+    `lent_time` DATETIME,
+
+    `apply_return_time` DATETIME,
+
+    `user_id` INT,
+
+     `return_time` DATETIME,
+CREATE TABLE BMS_books_index(
+
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+
+    `book_code_index` varchar(20),
+
+    `book_name` varchar(20) BINARY,
+
+    `book_lent` INT,
+
+    `book_author` varchar(20),
+
+    `book_type` varchar(20),
+
+    `book_eval` INT 
+    `book_status` INT
+    `book_popular` TEXT 
+
+CREATE TABLE BMS_books_evaluate(
+	`id` INT PRIMARY KEY AUTO_INCREMENT,
+ 	`user_id` INT,
+	`user_name` TEXT BINARY,
+ 	`book_code` TEXT,
+	`book_name`TEXT£¬
+	`book_user_eval` INT (1ÎªºÃÆÀ£¬0Îª²îÆÀ£©
