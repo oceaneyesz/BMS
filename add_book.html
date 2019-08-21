@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <a href="index.html?id=<?php echo $id ?>">返回主页面</a>
+</head>
+<body>
+      <div>
+      <form action="../php/add_book.php" method="post">
+      <input  type="text" class="inputs" name="book_code" placeholder="图书编号"></dd>
+      <input  type="text" class="inputs" name="book_name" placeholder="图书名称"></dd>
+      <input  type="text" class="inputs" name="book_author" placeholder="图书作者"></dd>
+      <input  type="text" class="inputs" name="book_type" placeholder="图书种类"></dd>
+      <button class="register" type="submit" name="action" value="add">添加图书</button>
+
+          </form>
+</body>
+</html>

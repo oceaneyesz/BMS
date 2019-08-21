@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <a href="index.html?id=<?php echo $id ?>">返回主页面</a>
+</head>
+<body>
+      <div>
+      <form action="../php/book_return.php" method="post">
+      <input id="book_return" type="text" class="inputs" name="book_code" placeholder="图书编号"></dd>
+      <button class="register" type="submit" name="action" value="return">归还图书</button>
+      <a href="../php/index.php?id=<?php echo $id ?>">返回首页</a>
+      <script>
+
+          </script>
+</body>
+</html>

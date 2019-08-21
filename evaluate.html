@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>评价图书</title>
+        <a href="index.html?id=<?php echo $id ?>">返回主页面</a>
+    <head>
+<body>
+<form action="../php/evaluate.php?book_code=<?php echo $_SESSION['book_code'];?>" method="post">
+<input type="radio" name="evaluate" value="1">推荐       
+<input type="radio" name="evaluate" value="0">不推荐
+<button name="action" type="submit" class="button button-action button-square" value="eval">评价</button>
+</form>
+  </body>
+  </html>

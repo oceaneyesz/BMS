@@ -1,14 +1,11 @@
 <!DOCTYPE html>
   <html>
-
   <head>
     <meta charset="UTF-8">
     <title>注册</title>
-    <!-- <link href="register.css" rel="stylesheet"> -->
-　　
   </head>
   <body>
-      <form  name="myform" id="myform" method="POST" action="register1.php" onsubmit="check()">
+      <form  name="myform" id="myform" method="POST" action="..\php\register1.php" onsubmit="check()">
         <h1 class="bold">注册账户</h1>
         <dl>
           <dt>你的Email：</dt>
@@ -38,12 +35,20 @@
             </dd>
             <span id="admin_password1"></span>
         </dl>
-        <button class="register" type="submit" name="action" value="register">注册账户</button>
+        <input type="checkbox" name="123" onblur="check()">同意注册协议<br>
+        <button id="butn" class="register" type="submit" name="action" value="register">注册账户</button>
       </form>
   <script>
-    console.log("asf")
- function checkUsername(){
-  console.log("asdsad")
+document.getElementById("butn").setAttribute("disabled",true);
+function check(){
+   if(checkUsername()&&checkPassword()&&checkRepassword()&&checkEmail()){
+      return true;
+      document.getElementById("butn").removeAttribute("disabled",true);
+    }
+      else {return false;}
+
+function checkUsername(){
+
    var name=document.getElementById("username").value.trim();/*去除字符串两端的空白字符*/
    var name1=/^[^@#]{3,16}$/;
      if(!name1.test(name)){      
@@ -104,25 +109,7 @@ function checkAdpassword(){
   }
 }
 
-
-          var judge=0, type=0;
-          judge=<?php echo $judge; ?>;
-          type=<?php echo $user_type;?>;          
-          if (judge == 1) {
-              alert("恭喜，注册成功！");
-              if(type == 1){alert("您为管理员身份");}
-              judge=0;
-              
-              window.location.href="index.php?id=<?php echo $info["id"];?>"; 
-          }
-          if((judge==2)){
-              alert("该用户名已经被注册");
-              judge=0;
-          }
-          if((judge==3)){
-              alert("抱歉，注册失败");
-              judge=0;
-          }
-        </script>
+}
+</script>
   </body>
 </html>

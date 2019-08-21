@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <a href="index.html?id=<?php echo $id ?>">返回主页面</a>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+        <script>
+
+                $.ajax({                  
+                  type: "GET",
+                  url: "../php/user_history.php",
+                  dataType:"json",
+                  data: {
+                    'books':books
+                  },  
+                  success: function(data){
+                    console.log("666");
+                  },
+                  error: function(){
+                    console.log("777");
+                  }                  
+                });
+                console.log(23);
+      </script>
+<table id="tb">
+      <tr>          
+          <th id="code">图书编码</th>
+          <th id="lent_time">借阅时间</th>
+          <th id="return_time">归还时间</th>   
+      </tr>
+
+
+<script>
+window.onload = function () {
+    var tb = document.getElementById("tb");
+    for (var i = 0; i < books.length; i++) {
+        var row = tb.insertRow(tb.rows.length);
+        var c1 = row.insertCell(0);
+        c1.innerHTML = books[i].book_code;
+        var c2 = row.insertCell(1);
+        c2.innerHTML = books[i].lent_time;
+        var c3 = row.insertCell(2);
+        c3.innerHTML = books[i].return_time;
+    }
+}
+
+</script>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <a href="index.html?id=<?php echo $id ?>">返回主页面</a>
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        
+</head>
+<body>
+<table width=100%  class="table table-striped" style="overflow:hidden;white-space: nowrap;">
+            <tr>                
+                <td>用户名称</td>
+                <td>注册时间</td>
+                <td>借阅次数</td>   
+            </tr>
+
+<script>     
+$.ajax({
+                  
+        type: "GET",
+        url: "../php/users_ranking_list.php",
+        async: false,
+        dataType:"json",
+        data: {
+          'rank':rank
+        },
+        success: function(data){
+          console.log("666");
+        },
+        error: function(){
+          console.log("777");
+        }
+      });
+
+      window.onload = function () {
+    var tb = document.getElementById("tb");
+    for (var i = 0; i < rank.length; i++) {
+        var row = tb.insertRow(tb.rows.length);
+        var c1 = row.insertCell(0);
+        c1.innerHTML = rank[i].user_name;
+        var c2 = row.insertCell(1);
+        c2.innerHTML = rank[i].user_reg_time;
+        var c3 = row.insertCell(2);
+        c3.innerHTML = rank[i].lent_time;
+    }
+}
+</script>
+</body>
+</html>

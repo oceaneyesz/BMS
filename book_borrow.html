@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图书借阅</title>
+    <a href="index.html?id=<?php echo $id ?>">返回主页面</a>
+</head>
+<body>
+    <dl>
+      <form id="book_code" method="POST" action="../php/book_borrow.php">
+      <dt>图书编码：</dt>
+      <dd><input type="text" class="inputs" name="book_code" placeholder="图书编码"/></dd>
+      <button type="submit" name="action" value="lend">借阅图书</button>
+      </form>
+    </dl>
+    </body>
+    </html>
